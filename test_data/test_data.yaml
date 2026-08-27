@@ -1,0 +1,19 @@
+create_repo_cases:
+  - case_name: "正常创建公开仓库"
+    name: "test_data_driven_1"
+    description: "数据驱动-公开仓库"
+    private: false
+    expected_status: 201
+  - case_name: "正常创建私有仓库"
+    name: "test_data_driven_2"
+    description: "数据驱动-私有仓库"
+    private: true
+    expected_status: 201
+
+get_repo_cases:
+  - case_name: "查询存在的仓库"
+    repo_name: "api_auto_test"
+    expected_status: 200
+  - case_name: "查询不存在的仓库"
+    repo_name: "repo_not_exist_12345"
+    expected_status: 404

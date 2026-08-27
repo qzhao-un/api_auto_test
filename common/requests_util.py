@@ -1,25 +1,24 @@
+import os
 import requests
 import urllib3
 import allure
 from common.yaml_util import get_config
 
-# 禁用SSL警告
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class RequestsUtil:
-   def __init__(self):
-    import os
-    config = get_config()
-    self.base_url = config["base_url"]
-    self.timeout = config["timeout"]
-    self.token = config.get("token", "") or os.environ.get("GITHUB_TOKEN", "")
-    self.session = requests.Session()
-    self.session.verify = False
-    if self.token:
-        self.session.headers.update({
-            "Authorization": f"token {self.token}",
-            "Accept": "application/vnd.github.v3+json"
-        })
+    def __init__(self):
+        config = get_config()
+        self.base_url = config["base_url"]
+        self.timeout = config["timeout"]
+        self.token = config.get("token", "") or os.environ.get("GITHUB_TOKEN", "")
+        self.session = requests.Session()
+        self.session.verify = False
+        if self.token:
+            self.session.headers.update({
+                "Authorization": f"token {self.token}",
+                "Accept": "application/vnd.github.v3+json"
+            })
 
     def request(self, method, url, **kwargs):
         url = self.base_url + url
