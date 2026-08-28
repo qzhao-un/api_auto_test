@@ -1,0 +1,8 @@
+compare_cases:
+  - name: 对比两个GitHub用户信息
+    url1: https://api.github.com/users/octocat
+    url2: https://api.github.com/users/qzhao-un
+
+  - name: 对比同一用户的不同接口
+    url1: https://api.github.com/users/octocat
+    url2: https://api.github.com/users/torvalds

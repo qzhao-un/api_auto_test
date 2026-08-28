@@ -10,5 +10,13 @@ __pycache__/
 reports/
 .pytest_cache/
 
+# 日志
+logs/
+
+# Allure
+allure-results/
+allure-report/
+
 # 临时文件
 *.log
+.env
